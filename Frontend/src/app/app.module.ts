@@ -7,8 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskService } from './components/tasks/task.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormComponent } from './components/tasks/form/form.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { FormComponent } from './components/tasks/form/form.component'
 
 @NgModule({
   declarations: [

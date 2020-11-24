@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from '../task';
+import { TaskService } from '../task.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -8,17 +11,21 @@ import { Task } from '../task';
 })
 export class FormComponent implements OnInit {
 
-  public task: Task = new Task();
-  public titulo: string = "Crear Cliente";
+  task: Task = new Task()
 
-  constructor() { }
+  constructor( private taskService: TaskService,
+                private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public create(): void{
-    console.log("Click!");
-    console.log(this.task);
+  public addTask(): void{
+    this.taskService.addTask(this.task)
+    .subscribe(task => {
+      this.router.navigate(['/#'])
+      swal.fire('Tarea Guardada', `Tarea ${task.title} creado con exito`, 'success')
+    }
+    );
   }
 
 }

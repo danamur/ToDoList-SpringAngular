@@ -13,7 +13,7 @@ public class Task {
 
     private String title;
 
-    private boolean done = false;
+    private boolean done;
     
     public Task () {
     	
