@@ -1,0 +1,11 @@
+package com.danielnamur.services;
+
+import java.util.List;
+
+import com.danielnamur.models.entity.Task;
+
+public interface TaskService {
+	
+	public List<Task> findAll();
+
+}

@@ -1,0 +1,5 @@
+package com.danielnamur.services;
+
+public interface TaskService {
+
+}

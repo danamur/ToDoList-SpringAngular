@@ -1,0 +1,11 @@
+package com.danielnamur.models.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.danielnamur.models.entity.Task;
+
+@Repository
+public interface TaskRepository extends CrudRepository<Task, Long>{
+
+}

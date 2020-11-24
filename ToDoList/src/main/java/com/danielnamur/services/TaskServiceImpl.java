@@ -1,0 +1,55 @@
+package com.danielnamur.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.danielnamur.models.entity.Task;
+import com.danielnamur.models.repositories.TaskRepository;
+
+@Service
+public class TaskServiceImpl  implements TaskService{
+
+    @Autowired
+    private TaskRepository taskRepository;
+
+    @Override
+    @Transactional(readOnly = true)
+    public Task findById(Long id) {
+        return taskRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Task save(Task task) {
+        return taskRepository.save(task);
+    }
+
+    @Override
+    public void delete(Long id) {
+        taskRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Task> findAll() {
+        return (List<Task>) taskRepository.findAll();
+    }
+
+	@Override
+	public Task update(Long id, String title, boolean done) {
+		Optional <Task> taskActual = taskRepository.findById(id);
+		
+		if(taskActual != null) {
+			taskActual.get().setTitle(title);
+			taskActual.get().setDone(done);
+			
+			return taskActual.get();
+		}
+		return null;
+	}
+
+}

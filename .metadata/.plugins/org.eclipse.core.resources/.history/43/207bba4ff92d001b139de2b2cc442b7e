@@ -1,0 +1,5 @@
+package com.danielnamur.models.repositories;
+
+public interface TaskRepository {
+
+}

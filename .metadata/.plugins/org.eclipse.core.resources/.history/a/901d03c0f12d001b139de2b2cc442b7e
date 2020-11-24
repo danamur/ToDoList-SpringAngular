@@ -1,0 +1,5 @@
+package com.danielnamur.model;
+
+public class Task {
+
+}

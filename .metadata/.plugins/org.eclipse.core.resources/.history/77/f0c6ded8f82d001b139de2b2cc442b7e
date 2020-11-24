@@ -1,0 +1,5 @@
+package com.danielnamur.models.entity;
+
+public class Task {
+
+}

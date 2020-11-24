@@ -1,0 +1,20 @@
+package com.danielnamur.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.danielnamur.models.entity.Task;
+import com.danielnamur.models.repositories.TaskRepository;
+
+public class TaskServiceImpl implements TaskService {
+	
+	@Autowired
+	private TaskRepository taskRepository;
+	
+	@Override
+	public List<Task> findAll() {
+		return (List<Task>) taskRepository.findAll();
+	}
+
+}

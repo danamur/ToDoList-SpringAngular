@@ -1,0 +1,5 @@
+package com.danielnamur.repositories;
+
+public interface TaskRepository {
+
+}
